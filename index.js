@@ -1,15 +1,29 @@
-const app = require("./App");
-const connectToMongo = require("./Database/connectToDB");
+import React from "react";
+import ReactDOM from "react-dom/client";
+import "./index.css";
+import App from "./App";
+import { store } from "./redux/store";
+import { Provider } from "react-redux";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
-const PORT = process.env.PORT || 4000;
-
-// Connecting to Database
-connectToMongo();
-
-app.get("/", (req, res) => {
-  res.send("Server is up and running ❤️");
-});
-
-app.listen(PORT, () =>
-  console.log(`Server is running on http://localhost:${PORT} 🔥`)
+const root = ReactDOM.createRoot(document.getElementById("root"));
+root.render(
+  <React.StrictMode>
+    <Provider store={store}>
+      <App />
+      <ToastContainer
+        position="bottom-right"
+        autoClose={3000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="light"
+      />
+    </Provider>
+  </React.StrictMode>
 );
