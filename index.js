@@ -1,29 +1,7 @@
-import React from "react";
-import ReactDOM from "react-dom/client";
-import "./index.css";
-import App from "./App";
-import { store } from "./redux/store";
-import { Provider } from "react-redux";
-import { ToastContainer } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
-
-const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(
-  <React.StrictMode>
-    <Provider store={store}>
-      <App />
-      <ToastContainer
-        position="bottom-right"
-        autoClose={3000}
-        hideProgressBar={false}
-        newestOnTop={false}
-        closeOnClick
-        rtl={false}
-        pauseOnFocusLoss
-        draggable
-        pauseOnHover
-        theme="light"
-      />
-    </Provider>
-  </React.StrictMode>
-);
+export { default as Header } from "./Header";
+export { default as BookNow } from "./BookNow";
+export { default as Packages } from "./Packages";
+export { default as Services } from "./Services";
+export { default as Gallery } from "./Gallery";
+export { default as Reviews } from "./Reviews";
+export { default as Contact } from "./Contact";
